@@ -231,7 +231,7 @@ fun WeddingChecklistScreen(viewModel: MyViewModel = hiltViewModel(), navControll
                                             .padding(8.dp).clip(CircleShape)
                                             .border(1.dp, Color.Gray, CircleShape).clickable {
                                                 navController.navigate(
-                                                    Routes.UpdataChecklistRoute(
+                                                    Routes.UpdateChecklistRoute(
                                                         title = task.title,
                                                         id = task.id,
                                                         isCompleted = task.isCompleted

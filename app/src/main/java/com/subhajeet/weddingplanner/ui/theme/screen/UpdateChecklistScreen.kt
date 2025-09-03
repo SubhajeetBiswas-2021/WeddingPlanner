@@ -22,7 +22,7 @@ import com.subhajeet.weddingplanner.viewModel.MyViewModel
 
 @SuppressLint("UnrememberedGetBackStackEntry")
 @Composable
-fun UpdataChecklistScreen(
+fun UpdateChecklistScreen(
     navController: NavController,
     title: String,
     viewModel: MyViewModel = hiltViewModel(),
