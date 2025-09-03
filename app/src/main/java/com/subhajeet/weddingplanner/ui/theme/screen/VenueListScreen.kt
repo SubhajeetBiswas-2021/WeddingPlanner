@@ -56,7 +56,7 @@ fun VenueListScreen(modifier: Modifier,viewModel: VenueViewModel = hiltViewModel
 
     val filteredVenue = remember(originalVenues, query) {
         originalVenues.filter {
-            it.priceRange.contains(query, ignoreCase = true) ||
+            it.priceRange.contains(query, ignoreCase = true) || it.name.contains(query, ignoreCase = true) ||
                     it.capacity.toString().contains(query)
         }
     }
