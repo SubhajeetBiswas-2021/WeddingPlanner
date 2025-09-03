@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -59,7 +61,7 @@ fun WeddingChecklistScreen(viewModel: MyViewModel = hiltViewModel(), navControll
 
     var active by remember { mutableStateOf(false) } // Active state for SearchBar
 
-    var searching by rememberSaveable { mutableStateOf(false) }  //very imaportant here for controlling the backbutton
+    var searching by rememberSaveable { mutableStateOf(false) }  //very important here for controlling the backbutton
 
     // Handle back button when search bar is active
     BackHandler(enabled = active || searching) {
@@ -107,7 +109,7 @@ fun WeddingChecklistScreen(viewModel: MyViewModel = hiltViewModel(), navControll
                         viewModel.addTask(newTask)
                         newTask = ""
                     }
-                }) {
+                },modifier =Modifier.padding(0.dp,0.dp,0.dp,25.dp).height(45.dp)) {
                     Text("Add")
                 }
             }
@@ -116,10 +118,9 @@ fun WeddingChecklistScreen(viewModel: MyViewModel = hiltViewModel(), navControll
 
         Column(modifier = Modifier.padding(0.dp)) {
             if(filteredTasks.isEmpty()){
-                Text(text="No Contacts Available", modifier = Modifier.//padding(16.dp))
-                padding(horizontal = 16.dp, vertical = 8.dp)) // 👈 cleaner spacing
+                Text(text="No Contacts Available", modifier = Modifier.fillMaxSize())
             }else{
-                SearchBar(modifier = Modifier.fillMaxWidth().padding(horizontal = 11.dp, vertical = 0.dp),//.padding(0.dp,25.dp,0.dp,0.dp),
+                SearchBar(modifier = Modifier.fillMaxWidth().padding(horizontal = 11.dp, vertical = 0.dp),
                     query = query,
                     onQueryChange = {
                         query = it
@@ -133,7 +134,7 @@ fun WeddingChecklistScreen(viewModel: MyViewModel = hiltViewModel(), navControll
                         searching = it || query.isNotEmpty()
                     },
                     placeholder = {
-                        Text(text = "Search contacts")
+                        Text(text = "Search tasks")
                     },
                     trailingIcon = {
                         if (active) {
@@ -178,7 +179,7 @@ fun WeddingChecklistScreen(viewModel: MyViewModel = hiltViewModel(), navControll
                 }
 
 
-                // 📋 Show filtered contacts or empty state
+
                 if (filteredTasks.isEmpty() && query.isNotEmpty()) {
                     Text(
                         text = "No contact found by this name.",
@@ -193,10 +194,14 @@ fun WeddingChecklistScreen(viewModel: MyViewModel = hiltViewModel(), navControll
                     Text(
                         "Wedding Checklist",
                         style = MaterialTheme.typography.headlineMedium,
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
+                        modifier = Modifier.align(Alignment.CenterHorizontally).padding(0.dp,6.dp,0.dp,2.dp),
                         fontWeight = FontWeight.Bold
                     )
-                    LazyColumn {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize().padding(8.dp)
+
+                    ) {
 
                         items(filteredTasks) { task ->
                             Row(
