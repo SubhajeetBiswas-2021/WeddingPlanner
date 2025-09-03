@@ -17,4 +17,10 @@ sealed class Routes {
         val isCompleted: Boolean
     )
 
+    @Serializable
+    object LoginScreenRoute
+
+    @Serializable
+    object SignUpScreenRoute
+
 }
