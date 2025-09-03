@@ -11,7 +11,7 @@ sealed class Routes {
     object WeddingCheckListRoute
 
     @Serializable
-    data class UpdataChecklistRoute(
+    data class UpdateChecklistRoute(
         val title: String,
         val id: Int,
         val isCompleted: Boolean
