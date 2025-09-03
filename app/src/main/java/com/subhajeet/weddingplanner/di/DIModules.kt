@@ -2,6 +2,8 @@ package com.subhajeet.weddingplanner.di
 
 import android.app.Application
 import androidx.room.Room
+import com.subhajeet.weddingplanner.Usermodel.UserDao
+import com.subhajeet.weddingplanner.Usermodel.UserDatabase
 import com.subhajeet.weddingplanner.model.TaskDao
 import com.subhajeet.weddingplanner.model.TaskDatabase
 import dagger.Module
@@ -30,5 +32,22 @@ object DIModules {
     @Singleton
     fun provideTaskDao(db: TaskDatabase): TaskDao {
         return db.getDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserDatabase(context : Application): UserDatabase {             //returning the database
+        return Room.databaseBuilder(
+            context.baseContext,
+            UserDatabase::class.java,
+            "user_database"
+        ).build()
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideUserDao(db: UserDatabase): UserDao {
+        return db.getUserDao()
     }
 }
