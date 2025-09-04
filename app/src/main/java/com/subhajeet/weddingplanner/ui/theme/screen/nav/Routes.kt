@@ -23,4 +23,7 @@ sealed class Routes {
     @Serializable
     object SignUpScreenRoute
 
+    @Serializable
+    object BudgetCalculatorScreenRoute
+
 }
