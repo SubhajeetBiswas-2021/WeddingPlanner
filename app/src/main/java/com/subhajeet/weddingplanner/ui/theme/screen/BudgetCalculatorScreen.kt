@@ -75,7 +75,7 @@ fun BudgetCalculatorScreen(
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("Wedding Planner") },
+                    title = { Text("Budget Calculator") },
                     navigationIcon = {
                         IconButton(onClick = { scope.launch { drawerState.open() } }) {
                             Icon(Icons.Default.Menu, contentDescription = "Menu")

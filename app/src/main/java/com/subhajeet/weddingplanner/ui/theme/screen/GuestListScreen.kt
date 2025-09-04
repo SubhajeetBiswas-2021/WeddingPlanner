@@ -84,7 +84,7 @@ fun GuestListScreen(viewModel: GuestViewModel = hiltViewModel(), navController: 
 
         topBar = {
             TopAppBar(
-                title = { Text("Wedding Planner") },
+                title = { Text("Guests") },
                 navigationIcon = {
                     IconButton(onClick = { scope.launch { drawerState.open() } }) {
                         Icon(Icons.Default.Menu, contentDescription = "Menu")
