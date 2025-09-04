@@ -26,4 +26,14 @@ sealed class Routes {
     @Serializable
     object BudgetCalculatorScreenRoute
 
+    @Serializable
+    object GuestListScreenRoute
+
+    @Serializable
+    data class AddGuestRoute(
+        val id: Int?,
+        val name:String,
+        val rsvpStatus:String
+    )
+
 }

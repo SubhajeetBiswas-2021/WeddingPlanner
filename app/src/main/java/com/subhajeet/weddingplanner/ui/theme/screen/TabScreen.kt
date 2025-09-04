@@ -144,7 +144,7 @@ fun DrawerContent(navController: NavController, drawerState: DrawerState) {
             listOf(
                 "TabScreen" to Routes.TabScreen,
                 "BudgetCalculatorScreen" to Routes.BudgetCalculatorScreenRoute,
-                //"Settings" to Routes.SignUpScreenRoute, // Example extra screen
+                "GuestListScreen" to Routes.GuestListScreenRoute // Example extra screen
 
             ).forEach { (label, route) ->
                 val isSelected = currentRoute == route::class.qualifiedName  //for giving color to the navigate screen in the navigation drawer

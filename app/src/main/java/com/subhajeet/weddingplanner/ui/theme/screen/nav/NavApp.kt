@@ -5,7 +5,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.subhajeet.weddingplanner.ui.theme.screen.AddGuestScreen
 import com.subhajeet.weddingplanner.ui.theme.screen.BudgetCalculatorScreen
+import com.subhajeet.weddingplanner.ui.theme.screen.GuestListScreen
 import com.subhajeet.weddingplanner.ui.theme.screen.LoginScreen
 import com.subhajeet.weddingplanner.ui.theme.screen.SignUpScreen
 import com.subhajeet.weddingplanner.ui.theme.screen.TabScreen
@@ -46,5 +48,15 @@ fun NavApp() {
         composable<Routes.BudgetCalculatorScreenRoute> {
             BudgetCalculatorScreen(navController = navController)
         }
+
+        composable<Routes.GuestListScreenRoute> {
+            GuestListScreen(navController = navController)
+        }
+
+        composable<Routes.AddGuestRoute> {
+            val data = it.toRoute<Routes.AddGuestRoute>()
+            AddGuestScreen(navController = navController,id=data.id,name = data.name,rsvpStatus=data.rsvpStatus)
+        }
+
     }
 }
